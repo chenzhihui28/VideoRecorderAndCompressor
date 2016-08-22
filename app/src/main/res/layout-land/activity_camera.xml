@@ -43,7 +43,7 @@
             android:layout_toRightOf="@+id/textChrono"
             android:adjustViewBounds="true"
             android:scaleType="fitStart"
-            android:src="@drawable/player_record"
+            android:src="@mipmap/player_record"
             android:visibility="gone"/>
 
         <ListView
@@ -86,7 +86,7 @@
                     android:adjustViewBounds="true"
                     android:maxWidth="80dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/ic_camara_menu_switch"/>
+                    android:src="@mipmap/ic_camera_menu_switch"/>
 
             </LinearLayout>
 
@@ -103,7 +103,7 @@
                     android:adjustViewBounds="true"
                     android:maxWidth="80dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/player_record"/>
+                    android:src="@mipmap/player_record"/>
             </LinearLayout>
 
             <LinearLayout
@@ -119,7 +119,7 @@
                     android:adjustViewBounds="true"
                     android:maxHeight="60dp"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/ic_flash_off_white"/>
+                    android:src="@mipmap/ic_flash_off_white"/>
             </LinearLayout>
         </LinearLayout>
 

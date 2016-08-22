@@ -32,5 +32,6 @@
     <string name="cancel">取消</string>
     <string name="compress_result_input_output">输入:%1$s,大小:%2$s,输出:%3$s,大小:%4$s</string>
     <string name="path">视频路径:%1$s,大小:%2$s</string>
+    <string name="dont_have_app_to_open_file">没有支持此格式的播放器</string>
 
 </resources>

@@ -157,13 +157,13 @@ public class CameraActivity extends AppCompatActivity {
                 cameraId = findBackFacingCamera();
                 if (flash) {
                     mPreview.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
-                    mBinding.buttonFlash.setImageResource(R.drawable.ic_flash_on_white);
+                    mBinding.buttonFlash.setImageResource(R.mipmap.ic_flash_on_white);
                 }
             } else if (!frontal) {
                 cameraId = findBackFacingCamera();
                 if (flash) {
                     mPreview.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
-                    mBinding.buttonFlash.setImageResource(R.drawable.ic_flash_on_white);
+                    mBinding.buttonFlash.setImageResource(R.mipmap.ic_flash_on_white);
                 }
             }
 
@@ -301,11 +301,11 @@ public class CameraActivity extends AppCompatActivity {
             if (!recording && !cameraFront) {
                 if (flash) {
                     flash = false;
-                    mBinding.buttonFlash.setImageResource(R.drawable.ic_flash_off_white);
+                    mBinding.buttonFlash.setImageResource(R.mipmap.ic_flash_off_white);
                     setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
                 } else {
                     flash = true;
-                    mBinding.buttonFlash.setImageResource(R.drawable.ic_flash_on_white);
+                    mBinding.buttonFlash.setImageResource(R.mipmap.ic_flash_on_white);
                     setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
                 }
             }
@@ -355,7 +355,7 @@ public class CameraActivity extends AppCompatActivity {
                 mCamera = Camera.open(cameraId);
                 if (flash) {
                     flash = false;
-                    mBinding.buttonFlash.setImageResource(R.drawable.ic_flash_off_white);
+                    mBinding.buttonFlash.setImageResource(R.mipmap.ic_flash_off_white);
                     mPreview.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
                 }
                 // mPicture = getPictureCallback();
@@ -388,7 +388,7 @@ public class CameraActivity extends AppCompatActivity {
                 //如果正在录制点击这个按钮表示录制完成
                 mediaRecorder.stop(); //停止
                 stopChronometer();
-                mBinding.buttonCapture.setImageResource(R.drawable.player_record);
+                mBinding.buttonCapture.setImageResource(R.mipmap.player_record);
                 changeRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
                 releaseMediaRecorder();
                 Toast.makeText(CameraActivity.this, R.string.video_captured, Toast.LENGTH_SHORT).show();
@@ -420,7 +420,7 @@ public class CameraActivity extends AppCompatActivity {
                             } else {
                                 changeRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                             }
-                            mBinding.buttonCapture.setImageResource(R.drawable.player_stop);
+                            mBinding.buttonCapture.setImageResource(R.mipmap.player_stop);
                         } catch (final Exception ex) {
                             Log.i("---", "Exception in thread");
                             setResult(MainActivity.RESULT_CODE_FOR_RECORD_VIDEO_FAILED);

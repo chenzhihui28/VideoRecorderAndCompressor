@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     public static final int RESULT_CODE_FOR_RECORD_VIDEO_CANCEL = 4;//取消录制
     public static final String INTENT_EXTRA_VIDEO_PATH = "intent_extra_video_path";//录制的视频路径
     private MaterialDialog mMaterialDialog;
-    private Double videoLength = 0.00;
+    private Double videoLength = 0.00;//视频时长 s
     private static final Handler handler = new Handler();
 
     @Override
@@ -252,7 +252,7 @@ public class MainActivity extends AppCompatActivity {
             //跳转
             startActivity(intent);
         } catch (Exception e) {
-
+            Toast.makeText(MainActivity.this, R.string.dont_have_app_to_open_file, Toast.LENGTH_SHORT).show();
         }
 
     }
