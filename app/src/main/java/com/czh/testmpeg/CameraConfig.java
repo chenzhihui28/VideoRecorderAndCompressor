@@ -5,7 +5,7 @@ package com.czh.testmpeg;
  */
 public class CameraConfig {
 
-    public static int MAX_DURATION_RECORD = 600000;
-    public static int MAX_FILE_SIZE_RECORD = 1000000000;
+    public static int MAX_DURATION_RECORD = 600*1000;
+    public static int MAX_FILE_SIZE_RECORD = 2000*1000*1000;
 
 }

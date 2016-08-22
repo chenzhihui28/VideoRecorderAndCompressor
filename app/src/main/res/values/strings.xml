@@ -19,7 +19,6 @@
     <!-- 录制视频-->
     <string name="record_video">录制视频</string>
     <string name="run_compress_command">运行压缩命令</string>
-    <string name="video_file_path">视频文件路径:%1$s</string>
     <string name="no_video_tips">视频文件不存在,请先录制视频</string>
     <string name="fail_when_camera_try_autofocus">对焦失败:%1$s</string>
     <string name="dont_have_camera_error">对不起,没有发现摄像头,请检查</string>
@@ -28,5 +27,10 @@
     <string name="camera_init_fail">摄像头初始化失败</string>
     <string name="dont_have_front_camera">当前设备没有前置摄像头</string>
     <string name="changing_flashLight_mode">切换闪光灯模式失败</string>
+    <string name="open_video">打开视频</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="compress_result_input_output">输入:%1$s,大小:%2$s,输出:%3$s,大小:%4$s</string>
+    <string name="path">视频路径:%1$s,大小:%2$s</string>
 
 </resources>

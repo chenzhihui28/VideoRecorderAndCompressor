@@ -43,7 +43,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Chronometer;
 import android.widget.Toast;
 
-import com.czh.testmpeg.CameraConfig;
 import com.czh.testmpeg.R;
 import com.czh.testmpeg.databinding.ActivityCameraBinding;
 import com.czh.testmpeg.videocompress.MainActivity;
@@ -133,10 +132,11 @@ public class CameraActivity extends AppCompatActivity {
         super.onResume();
         if (!hasCamera(getApplicationContext())) {
             //这台设备没有发现摄像头
-            Toast toast = Toast.makeText(getApplicationContext(), R.string.dont_have_camera_error
-                    , Toast.LENGTH_LONG);
-            toast.show();
+            Toast.makeText(getApplicationContext(), R.string.dont_have_camera_error
+                    , Toast.LENGTH_LONG).show();
             setResult(MainActivity.RESULT_CODE_FOR_RECORD_VIDEO_FAILED);
+            releaseCamera();
+            releaseMediaRecorder();
             finish();
         }
         if (mCamera == null) {
@@ -391,17 +391,21 @@ public class CameraActivity extends AppCompatActivity {
                 mBinding.buttonCapture.setImageResource(R.drawable.player_record);
                 changeRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
                 releaseMediaRecorder();
-                Toast.makeText(CameraActivity.this, R.string.video_captured, Toast.LENGTH_LONG).show();
+                Toast.makeText(CameraActivity.this, R.string.video_captured, Toast.LENGTH_SHORT).show();
                 recording = false;
                 Intent intent = new Intent();
                 intent.putExtra(MainActivity.INTENT_EXTRA_VIDEO_PATH, url_file);
                 setResult(MainActivity.RESULT_CODE_FOR_RECORD_VIDEO_SUCCEED,intent);
+                releaseCamera();
+                releaseMediaRecorder();
                 finish();
             } else {
                 //准备开始录制视频
                 if (!prepareMediaRecorder()) {
                     Toast.makeText(CameraActivity.this, getString(R.string.camera_init_fail), Toast.LENGTH_LONG).show();
                     setResult(MainActivity.RESULT_CODE_FOR_RECORD_VIDEO_FAILED);
+                    releaseCamera();
+                    releaseMediaRecorder();
                     finish();
                 }
                 //开始录制视频
@@ -420,6 +424,8 @@ public class CameraActivity extends AppCompatActivity {
                         } catch (final Exception ex) {
                             Log.i("---", "Exception in thread");
                             setResult(MainActivity.RESULT_CODE_FOR_RECORD_VIDEO_FAILED);
+                            releaseCamera();
+                            releaseMediaRecorder();
                             finish();
                         }
                     }
@@ -464,11 +470,20 @@ public class CameraActivity extends AppCompatActivity {
         Date d = new Date();
         String timestamp = String.valueOf(d.getTime());
 //        url_file = Environment.getExternalStorageDirectory().getPath() + "/videoKit" + timestamp + ".mp4";
-        url_file = "/mnt/sdcard/videokit/" + timestamp + ".mp4";
+        url_file = "/mnt/sdcard/videokit/in.mp4";
+//        url_file = "/mnt/sdcard/videokit/" + timestamp + ".mp4";
+
+        File file1 = new File(url_file);
+        if (file1.exists()) {
+            file1.delete();
+        }
 
         mediaRecorder.setOutputFile(url_file);
-        mediaRecorder.setMaxDuration(CameraConfig.MAX_DURATION_RECORD); //设置视频文件最长时间 60s.
-        mediaRecorder.setMaxFileSize(CameraConfig.MAX_FILE_SIZE_RECORD); //设置视频文件最大size 1G
+
+//        https://developer.android.com/reference/android/media/MediaRecorder.html#setMaxDuration(int) 不设置则没有限制
+//        mediaRecorder.setMaxDuration(CameraConfig.MAX_DURATION_RECORD); //设置视频文件最长时间 60s.
+//        https://developer.android.com/reference/android/media/MediaRecorder.html#setMaxFileSize(int) 不设置则没有限制
+//        mediaRecorder.setMaxFileSize(CameraConfig.MAX_FILE_SIZE_RECORD); //设置视频文件最大size 1G
 
         try {
             mediaRecorder.prepare();
@@ -601,6 +616,8 @@ public class CameraActivity extends AppCompatActivity {
             }
         }
         setResult(MainActivity.RESULT_CODE_FOR_RECORD_VIDEO_CANCEL);
+        releaseCamera();
+        releaseMediaRecorder();
         finish();
         return super.onKeyDown(keyCode, event);
     }
