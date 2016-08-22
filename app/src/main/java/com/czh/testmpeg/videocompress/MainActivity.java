@@ -162,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
                 String videoPath = data.getStringExtra(INTENT_EXTRA_VIDEO_PATH);
                 if (!TextUtils.isEmpty(videoPath)) {
                     currentInputVideoPath = videoPath;
+                    refreshCurrentPath();
                 }
             } else if (resultCode == RESULT_CODE_FOR_RECORD_VIDEO_FAILED) {
                 //录制失败
@@ -170,7 +171,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    private void refreshCurrentPath() {
+        cmd = "-y -i "+currentInputVideoPath+" -strict -2 -vcodec libx264 -preset ultrafast " +
+                "-crf 24 -acodec aac -ar 44100 -ac 2 -b:a 96k -s 480x320 -aspect 16:9 "+currentOutputVideoPath;
+        mBinding.etCommand.setText(cmd);
+    }
 
 
 }
