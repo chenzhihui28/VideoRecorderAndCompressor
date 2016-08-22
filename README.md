@@ -1,6 +1,6 @@
 # VideoRecorderAndCompressor
 #version 1.0
-Video Recorder
+Video Recorder, Supports resolution selection, video length,video size configure
 Video Compressor Using Fmpeg
 
 #初始版本
