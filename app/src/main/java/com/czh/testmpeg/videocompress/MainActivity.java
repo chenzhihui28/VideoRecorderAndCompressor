@@ -219,7 +219,12 @@ public class MainActivity extends AppCompatActivity {
                     retr.setDataSource(currentInputVideoPath);
                     String time = retr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION);//获取视频时长
                     //7680
-                    videoLength = Double.parseDouble(time)/1000.00;
+                    try {
+                        videoLength = Double.parseDouble(time)/1000.00;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        videoLength = 0.00;
+                    }
                     Log.v(TAG, "videoLength = "+videoLength + "s");
                     refreshCurrentPath();
                 }
