@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private String currentInputVideoPath = "";
     private String currentOutputVideoPath = "/mnt/sdcard/videokit/out.mp4";
     String cmd = "-y -i " + currentInputVideoPath + " -strict -2 -vcodec libx264 -preset ultrafast " +
-            "-crf 24 -acodec aac -ar 44100 -ac 2 -b:a 96k -s 480x320 -aspect 16:9 " + currentOutputVideoPath;
+            "-crf 24 -acodec aac -ar 44100 -ac 2 -b:a 96k -s 640x480 -aspect 16:9 " + currentOutputVideoPath;
     //相机权限,录制音频权限,读写sd卡的权限,都为必须,缺一不可
     private static final String[] PERMISSIONS = new String[]{
             Manifest.permission.CAMERA,

@@ -89,6 +89,7 @@ public class CameraActivity extends AppCompatActivity {
 
     /**
      * 找前置摄像头,没有则返回-1
+     *
      * @return cameraId
      */
     private int findFrontFacingCamera() {
@@ -133,7 +134,7 @@ public class CameraActivity extends AppCompatActivity {
         if (!hasCamera(getApplicationContext())) {
             //这台设备没有发现摄像头
             Toast.makeText(getApplicationContext(), R.string.dont_have_camera_error
-                    , Toast.LENGTH_LONG).show();
+                    , Toast.LENGTH_SHORT).show();
             setResult(MainActivity.RESULT_CODE_FOR_RECORD_VIDEO_FAILED);
             releaseCamera();
             releaseMediaRecorder();
@@ -149,7 +150,7 @@ public class CameraActivity extends AppCompatActivity {
                 switchCameraListener = new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(CameraActivity.this, R.string.dont_have_front_camera, Toast.LENGTH_LONG).show();
+                        Toast.makeText(CameraActivity.this, R.string.dont_have_front_camera, Toast.LENGTH_SHORT).show();
                     }
                 };
 
@@ -324,7 +325,7 @@ public class CameraActivity extends AppCompatActivity {
                 } else {
                     //只有一个摄像头不允许切换
                     Toast.makeText(getApplicationContext(), R.string.only_have_one_camera
-                            , Toast.LENGTH_LONG).show();
+                            , Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -395,14 +396,14 @@ public class CameraActivity extends AppCompatActivity {
                 recording = false;
                 Intent intent = new Intent();
                 intent.putExtra(MainActivity.INTENT_EXTRA_VIDEO_PATH, url_file);
-                setResult(MainActivity.RESULT_CODE_FOR_RECORD_VIDEO_SUCCEED,intent);
+                setResult(MainActivity.RESULT_CODE_FOR_RECORD_VIDEO_SUCCEED, intent);
                 releaseCamera();
                 releaseMediaRecorder();
                 finish();
             } else {
                 //准备开始录制视频
                 if (!prepareMediaRecorder()) {
-                    Toast.makeText(CameraActivity.this, getString(R.string.camera_init_fail), Toast.LENGTH_LONG).show();
+                    Toast.makeText(CameraActivity.this, getString(R.string.camera_init_fail), Toast.LENGTH_SHORT).show();
                     setResult(MainActivity.RESULT_CODE_FOR_RECORD_VIDEO_FAILED);
                     releaseCamera();
                     releaseMediaRecorder();
@@ -530,6 +531,7 @@ public class CameraActivity extends AppCompatActivity {
 
     private class StableArrayAdapter extends ArrayAdapter<String> {
         HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
+
         public StableArrayAdapter(Context context, int textViewResourceId,
                                   List<String> objects) {
             super(context, textViewResourceId, objects);
