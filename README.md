@@ -6,6 +6,7 @@ Video Compressor Using Fmpeg
 #初始版本
 视频录制
 视频压缩（使用FFMpeg）
+使用了 http://writingminds.github.io/ffmpeg-android-java/ 的ffmpeg的操作库
 
 ![](http://ocpaglmkz.bkt.clouddn.com/compressor1.png)
 ![](http://ocpaglmkz.bkt.clouddn.com/compressor2.png)
