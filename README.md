@@ -10,6 +10,7 @@ Use https://github.com/WritingMinds/ffmpeg-android-java to load ffmpeg library a
 视频压缩（使用FFMpeg）
 
 使用了 http://writingminds.github.io/ffmpeg-android-java/ https://github.com/WritingMinds/ffmpeg-android-java 的ffmpeg的操作库用于加载ffmpeg的库以及执行命令。
+
 ![](http://ocpaglmkz.bkt.clouddn.com/compressor1.png)
 ![](http://ocpaglmkz.bkt.clouddn.com/compressor2.png)
 ![](http://ocpaglmkz.bkt.clouddn.com/compressor3.png)
