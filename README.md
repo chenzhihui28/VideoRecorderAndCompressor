@@ -1,7 +1,8 @@
 # VideoRecorderAndCompressor
 #version 1.0
-Video Recorder, Supports resolution selection, video length,video size configure
-Video Compressor Using Fmpeg
+Video Recorder, Supports resolution selection, video length and video size configure
+Video Compressor Using FFMpeg
+Use https://github.com/WritingMinds/ffmpeg-android-java to load ffmpeg library and execute command.
 
 #初始版本
 视频录制
