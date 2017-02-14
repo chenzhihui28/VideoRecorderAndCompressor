@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">VideoRecordAndCompressor</string>
+
+    <!-- 权限申请-->
+    <string name="tips_permission_request_title">权限申请</string>
+    <string name="tips_permission_request_content">权限申请啊权限申请啊,权限申请啊权限申请啊,到底给不给,没权限搞不了sd卡啊!!!</string>
+    <string name="go_and_grant_permission">到设置页面重新授予权限</string>
+    <string name="deny_and_quit">知道了,任性退出</string>
+
+
+    <!-- 压缩-->
+    <string name="compress_load_library_succeed">加载库成功</string>
+    <string name="compress_load_library_failed">加载库失败,原因:%1$s</string>
+    <string name="compress_succeed">压缩成功</string>
+    <string name="compress_failed">压缩失败,原因: %1$s</string>
+    <string name="compress_progress">进度: %1$s</string>
+    <string name="compree_please_input_command">请输入命令</string>
+
+    <!-- 录制视频-->
+    <string name="record_video">录制视频</string>
+    <string name="run_compress_command">运行压缩命令</string>
+    <string name="no_video_tips">视频文件不存在,请先录制视频</string>
+    <string name="fail_when_camera_try_autofocus">对焦失败:%1$s</string>
+    <string name="dont_have_camera_error">对不起,没有发现摄像头,请检查</string>
+    <string name="only_have_one_camera">对不起,您只有一个摄像头,无法切换</string>
+    <string name="video_captured">视频已成功录制</string>
+    <string name="camera_init_fail">摄像头初始化失败</string>
+    <string name="dont_have_front_camera">当前设备没有前置摄像头</string>
+    <string name="changing_flashLight_mode">切换闪光灯模式失败</string>
+    <string name="open_video">打开视频</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="compress_result_input_output">输入:%1$s,大小:%2$s,输出:%3$s,大小:%4$s</string>
+    <string name="path">视频路径:%1$s,大小:%2$s</string>
+    <string name="dont_have_app_to_open_file">没有支持此格式的播放器</string>
+
+</resources>
