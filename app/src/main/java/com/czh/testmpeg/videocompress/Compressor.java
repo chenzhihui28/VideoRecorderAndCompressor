@@ -48,7 +48,8 @@ public class Compressor {
 
     public void execCommand(String cmd,final CompressListener mListener){
         try {
-            ffmpeg.execute(cmd, new ExecuteBinaryResponseHandler() {
+            String[] cmds = cmd.split(" ");
+            ffmpeg.execute(cmds, new ExecuteBinaryResponseHandler() {
 
                 @Override
                 public void onStart() {}
